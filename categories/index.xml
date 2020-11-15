@@ -2,9 +2,9 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on 侠客书生</title>
-    <link>http://yangqiju.com/categories/</link>
+    <link>https://www.yangqiju.com/categories/</link>
     <description>Recent content in Categories on 侠客书生</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en</language><atom:link href="http://yangqiju.com/categories/index.xml" rel="self" type="application/rss+xml" />
+    <language>en</language><atom:link href="https://www.yangqiju.com/categories/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

@@ -1,2 +1,2 @@
 User-agent: *
-Sitemap: http://yangqiju.com/sitemap.xml
+Sitemap: https://www.yangqiju.com/sitemap.xml
