@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Shadowsocks 问题排除 - 侠客书生</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="yangqiju" /><meta name="description" content="Shadowsocks 使用过程中的一些疑难问题，结合现有信息和自己的探索加以解释说明。
+" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.78.2 with theme even" />
+
+
+<link rel="canonical" href="http://yangqiju.com/post/2016-10-05-shadowsocks-troubleshooting/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.b5a744db6de49a86cadafb3b70f555ab443f83c307a483402259e94726b045ff.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Shadowsocks 问题排除" />
+<meta property="og:description" content="Shadowsocks 使用过程中的一些疑难问题，结合现有信息和自己的探索加以解释说明。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://yangqiju.com/post/2016-10-05-shadowsocks-troubleshooting/" />
+<meta property="article:published_time" content="2016-10-05T18:44:30+00:00" />
+<meta property="article:modified_time" content="2016-10-05T18:44:30+00:00" />
+<meta itemprop="name" content="Shadowsocks 问题排除">
+<meta itemprop="description" content="Shadowsocks 使用过程中的一些疑难问题，结合现有信息和自己的探索加以解释说明。">
+<meta itemprop="datePublished" content="2016-10-05T18:44:30+00:00" />
+<meta itemprop="dateModified" content="2016-10-05T18:44:30+00:00" />
+<meta itemprop="wordCount" content="1570">
+
+
+
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Shadowsocks 问题排除"/>
+<meta name="twitter:description" content="Shadowsocks 使用过程中的一些疑难问题，结合现有信息和自己的探索加以解释说明。"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">侠客书生</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">主页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">关于</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">侠客书生</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">主页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">关于</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Shadowsocks 问题排除</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2016-10-05 </span>
+        
+        
+      </div>
+    </header>
+
+    
+    <div class="post-content">
+      <p>Shadowsocks 使用过程中的一些疑难问题，结合现有信息和自己的探索加以解释说明。</p>
+<h2 id="临时文件夹">临时文件夹</h2>
+<p>遇到某些不可知问题，尝试清除临时文件夹。在 Shadowsocks 文件夹中添加shadowsocks_portable_mode.txt，可以启动便携模式，临时文件夹在shadowsocks/temp。</p>
+<h2 id="默认绕过系统代理的软件的设置">默认绕过系统代理的软件的设置</h2>
+<p>某些软件默认绕过系统代理，直接使用时无法连接网络，如 QQ、网易云音乐、百度云等，在其设置选项中将其代理设置为使用浏览器代理即可。</p>
+<h2 id="使用-proxifier-配置不能使用代理的软件">使用 Proxifier 配置不能使用代理的软件</h2>
+<p>一些软件默认不使用代理，也没有设置代理的选项，如Gitbook Editor、一些游戏等。这时可以使用 <a href="https://www.proxifier.com/">Proxifier</a> 来让这些特定的程序通过代理，将默认规则设为通过代理，或将默认设为直连并将无法通过代理的程序加入代理名单，两种方法均可。一定要注意在使用时在 Proxifier 代理规则中将 Shadowsocks 加入直连名单，否则 Shadowsocks 会陷入代理循环。实际使用中发现一些游戏不支持 sock5 代理，无法通过代理联网，如 COD8，GitBook Editor。</p>
+<h2 id="代理配置">代理配置</h2>
+<p>在浏览器代理设置中可以勾选绕过本地地址，或者添加例外地址：localhost等，防止在本地预览一些服务如 Hexo 博客预览时出现错误。
+浏览器上可以配合 SwitcyOmega 等扩展实现更灵活的控制。</p>
+<h2 id="使用-ipv6-地址">使用 IPv6 地址</h2>
+<p>要求连接的网络支持 IPv6，同时使用可以提供 IPv6 地址的 VPS，在服务器中填写 IPv6 的地址，模式设置为全局。
+通过向远程服务器转发 IPv6 流量，更可以实现通过 IPv4 网络访问 IPv6 网站，需要客户端软件提供。</p>
+<h2 id="虚拟机代理设置">虚拟机代理设置</h2>
+<p>本操作的目的是让虚拟机的 Guest OS 共享主机的代理连接网络。除了在虚拟机中如同 Host OS 一样配置 sock5 代理外，可以进行如下操作。</p>
+<p>软件默认监听的地址是 127.0.0.1，也就是本机，但只有让软件的监听地址绑定在 0.0.0.0，才能把网络共享给 Guest OS。方法是开启“允许来自局域网的连接”。通过以下命令确认：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">netstat -a
+</code></pre></td></tr></table>
+</div>
+</div><p>这个 0.0.0.0 是任意的意思，就是说允许其他任何主机连接到这一代理上，并不是一个特定的地址，所以不要在代理设置里填写 0.0.0.0。正确的做法是：本机上的代理设置依旧是 127.0.0.1，而 Guest OS的网络设置就因Guest OS的网卡模式而异了。</p>
+<p>NAT 模式下，Guest OS 的代理设置为：Host OS 的 IP 地址（一个内网地址）+软件端口号，而不是填写127.0.0.1。以 Ubuntu 的 Guest OS 为例，找到设置-网络设置-代理，在所有类型都填入 Host OS 的 IP 地址，再填好端口号。Host OS 的 IP 地址通过以下命令获取：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">ipconfig
+</code></pre></td></tr></table>
+</div>
+</div><p>找到其中的本地连接一项后的 IPv4 地址，注意它应该是一个本地 IP 地址。</p>
+<p>然后将浏览器的代理设置为使用系统代理即可。</p>
+<h2 id="git-代理设置">git 代理设置</h2>
+<p>git 默认绕过系统代理，所以无法通过代理联网，git 命令无法与 git 服务器获得连接。通过以下命令为 git 设置 socks5 代理，然后保持 Shadowsocks 常开：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">git config --global https.proxy http://127.0.0.1:1080
+git config --global https.proxy https://127.0.0.1:1080
+</code></pre></td></tr></table>
+</div>
+</div><p>或者（git支持socks5代理）</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">git config --global http.proxy &#39;socks5://127.0.0.1:1080&#39; 
+git config --global https.proxy &#39;socks5://127.0.0.1:1080&#39; #  在虚拟机中检验成功
+</code></pre></td></tr></table>
+</div>
+</div><p>设置全局代理的另一种说法（在某次出错后尝试有效）：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">git config --global http.proxy socks5://127.0.0.1:1080
+</code></pre></td></tr></table>
+</div>
+</div><p>如果是虚拟机设置 git 代理，将 127.0.0.1 换成Host OS的本地IP地址。</p>
+<p>取消git代理方法如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">git config --global --unset http.proxy
+git config --global --unset https.proxy
+</code></pre></td></tr></table>
+</div>
+</div><p>查看当前代理：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">git config --global --get http.proxy
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="npm-代理设置">npm 代理设置</h2>
+<p>默认的 npm 命令不走代理，无法通过这一命令安装 npm 包，例如安装 gitbook-cli 失败。按照以下方法设置代理：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">npm config set proxy=http://127.0.0.1:1080 #http代理
+npm config set https_proxy=http://127.0.0.1:1080 #https代理
+</code></pre></td></tr></table>
+</div>
+</div><p>此处参考<a href="http://www.cnblogs.com/laozhbook/p/npm_help.html">npm用法及离线安装方法</a>。</p>
+<h2 id="aria2-代理设置">aria2 代理设置</h2>
+<p>使用<a href="https://github.com/aria2/aria2">aria2</a>和<a href="https://github.com/ziahamza/webui-aria2">webui-aria2</a>管理界面来下载可以极大地提高下载速度，据说可以达到 10M/s，现有网络环境自己实测可以达到5M/s。但在 socks5 代理下是无法直接使用的。
+打开全局设置，在all-proxy一项填入http://127.0.0.1:1080。</p>
+<h2 id="相关推荐">相关推荐</h2>
+<p><a href="http://www.auooo.com/2015/06/26/shadowsocks%EF%BC%88%E5%BD%B1%E6%A2%AD%EF%BC%89%E4%B8%8D%E5%AE%8C%E5%85%A8%E6%8C%87%E5%8D%97/">auooo: ShadowSocks（影梭）不完全指南</a></p>
+<p><em>更新记录</em>：</p>
+<p>2016.10.6 加入“使用Proxifier配置不能使用代理的软件”部分；加入“npm代理设置”部分
+2016.10.18 加入“aria2代理设置”部分
+2017.7.26 补充IPv6相关</p>
+    </div>
+
+    
+<footer class="post-footer">
+      
+      <nav class="post-nav">
+        <a class="prev" href="/post/2016-10-25-sunlight-from-behind/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">身后的阳光</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/2016-09-24-disk-drill/">
+            <span class="next-text nav-default">数据恢复工具 Disk Drill</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:i@yangqiju.com" class="iconfont icon-email" title="email"></a>
+  <a href="http://yangqiju.com/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2016 - 
+    2020<span class="heart"><i class="iconfont icon-heart"></i></span><span>yangqiju</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

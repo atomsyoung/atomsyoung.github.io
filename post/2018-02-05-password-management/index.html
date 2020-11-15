@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>密码管理 - 侠客书生</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="yangqiju" /><meta name="description" content="经过两天的努力，基本实现了密码管理的科学化。
+" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.78.2 with theme even" />
+
+
+<link rel="canonical" href="http://yangqiju.com/post/2018-02-05-password-management/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.b5a744db6de49a86cadafb3b70f555ab443f83c307a483402259e94726b045ff.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="密码管理" />
+<meta property="og:description" content="经过两天的努力，基本实现了密码管理的科学化。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://yangqiju.com/post/2018-02-05-password-management/" />
+<meta property="article:published_time" content="2018-02-05T12:00:00+00:00" />
+<meta property="article:modified_time" content="2018-02-05T12:00:00+00:00" />
+<meta itemprop="name" content="密码管理">
+<meta itemprop="description" content="经过两天的努力，基本实现了密码管理的科学化。">
+<meta itemprop="datePublished" content="2018-02-05T12:00:00+00:00" />
+<meta itemprop="dateModified" content="2018-02-05T12:00:00+00:00" />
+<meta itemprop="wordCount" content="1414">
+
+
+
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="密码管理"/>
+<meta name="twitter:description" content="经过两天的努力，基本实现了密码管理的科学化。"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">侠客书生</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">主页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">关于</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">侠客书生</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">主页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">关于</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">密码管理</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2018-02-05 </span>
+        
+        
+      </div>
+    </header>
+
+    
+    <div class="post-content">
+      <p>经过两天的努力，基本实现了密码管理的科学化。</p>
+<p>我的密码不至于简单，也不至于到处用同一个密码，但也不算过硬。一直以来，稍具重要性的密码我都采取某种构造方式使其既好记又复杂，也尽量不同，然后保存到一个加密文档，跨设备获取则是手动上传云端，下载后再解密。这么做有两个缺点仍然明显：一是不够安全，xls 格式文档的密码很容易破解，微软家的 Office 软件漏洞多恶意软件也多，手机通过云端下载至本地后再用 WPS 之类打开，会发生什么很难说；二是不够方便，手动上传云端自不必说，打开 Excel 后搜索的操作也很心累，每次换密码后面对散落各设备和云端的记录也很头疼，另外面对像 Office 365 这样强制定期更改高强度密码还不准雷同的，虽然用的少也足够让我想密码想到崩溃。</p>
+<p>No longer。</p>
+<p>使用可靠的密码库软件成为必然。比较主流同类工具后，我选择了开源的 KeePass。它的软件本体只有一个核心功能，即在桌面端可靠地存储和加密密码库，并有密码生成、历史记录等工具。好在开源社区提供了丰富的插件，我在这几百个里面找出了体验良好的云同步和备份工具 KeyAnywhere，支持 Dropbox、Google Drive、OneDrive 等云盘无缝接入。KeePass 的安卓端由开源社区提供，我选用了 KeePass2Android，尽管它的名字和界面都很一般，但与各种云端连接便捷双向同步逻辑良好以及使用虚拟键盘调用密码库的功能都让人舒心。在与浏览器的整合上，使用较广的方案是将 KeePassHTTP 作为基础，加上 ChromeIPass 一类的浏览器扩展。但我看到 KeeWeb 作者提及很多人对 KeePassHTTP 安全性的顾虑，于是放弃，后发现官方列表中的浏览器插件 KeePass Tusk 相当好，UI 不差，具备 KeePass 的核心功能，能与主流云服务整合。与浏览器的整合不是必要的，但也非常有用，故列在此。另 KeeWeb 是 KeePass 界面更现代化的外壳，也还不错。</p>
+<p>事实上整个过程的核心在于云端。将数据库文件存到云端，在任何位置获取，然后让任何设备上的更改都能同步回云端。这里我选用了 Dropbox。</p>
+<p>前面说与浏览器的整合并不必要的一个原因是浏览器本身有密码存储功能，如 Chrome 上的 Google Smart Lock 不仅可以本地存储，甚至可以使用凭据通过 passwords.google.com 获取，所以使用一个极度复杂的密码后让浏览器自己去记就好了。但浏览器本地存储的密码其实近乎裸奔，比如很久以前我就发现一个名为 WebBrowserPassView 的软件能轻松获取本地已经加密的密码，它所显示的密码表赫然便是我的实际密码。不过这一黑客工具的作者提到使用 master password 加密的浏览器密码暂未能解密，因此我推荐使用 Google Smart Lock 时应该使用额外的密码加密而不是只用 Google 账户的密码。</p>
+<p>现在很多网站对抗暴力破解和恶意嗅探的能力都提高了，一个略微复杂的密码也许都可以防止账户窃取。但这并不意味着用户什么都不需要做。很多时候密码泄露都是因为用户的疏忽大意，比如借用、将密码放在明显位置、不安全保存和在恶意网站上输入密码等，这是安全意识的欠缺，技术上就无能为力了。</p>
+<p>大家都知道密码要复杂，问题是如何方便，以及如何安全地方便。两天的折腾至少使我的所有重要账户的密码得以达到 16 位以上、极端复杂、无意义而且各不相同，同时在调用和随时更改时不至于造成困扰。而我需要做的是记住一个主密码，以及保存一份解密的必要不充分密钥文件，了却一桩事情。</p>
+<p>从价值上讲，我不是一个好的潜在破坏者的目标，比较重要的内容我从不只在一个位置保存，我也并不完全相信任何一家企业，即使一些密码泄露也不至于给我造成致命困扰，但以工具武装自己是利多于弊的。</p>
+<p>这里有两件美好的事情：开源，折腾。它们都能给你想要的东西。</p>
+    </div>
+
+    
+<footer class="post-footer">
+      
+      <nav class="post-nav">
+        <a class="prev" href="/post/2018-02-15-new-years-resolution/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">新年愿望</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/2018-01-07-lydia-the-elder-scrolls-v-skyrim/">
+            <span class="next-text nav-default">Lydia</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:i@yangqiju.com" class="iconfont icon-email" title="email"></a>
+  <a href="http://yangqiju.com/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2016 - 
+    2020<span class="heart"><i class="iconfont icon-heart"></i></span><span>yangqiju</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

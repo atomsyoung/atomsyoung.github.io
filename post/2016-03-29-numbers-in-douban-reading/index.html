@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>豆瓣读书的计数问题 - 侠客书生</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="yangqiju" /><meta name="description" content="我是豆瓣的忠实用户，其中一个原因就是豆瓣阅读给我提供了一个很好的阅读记录平台。
+" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.78.2 with theme even" />
+
+
+<link rel="canonical" href="http://yangqiju.com/post/2016-03-29-numbers-in-douban-reading/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.b5a744db6de49a86cadafb3b70f555ab443f83c307a483402259e94726b045ff.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="豆瓣读书的计数问题" />
+<meta property="og:description" content="我是豆瓣的忠实用户，其中一个原因就是豆瓣阅读给我提供了一个很好的阅读记录平台。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://yangqiju.com/post/2016-03-29-numbers-in-douban-reading/" />
+<meta property="article:published_time" content="2016-03-29T21:14:46+00:00" />
+<meta property="article:modified_time" content="2016-03-29T21:14:46+00:00" />
+<meta itemprop="name" content="豆瓣读书的计数问题">
+<meta itemprop="description" content="我是豆瓣的忠实用户，其中一个原因就是豆瓣阅读给我提供了一个很好的阅读记录平台。">
+<meta itemprop="datePublished" content="2016-03-29T21:14:46+00:00" />
+<meta itemprop="dateModified" content="2016-03-29T21:14:46+00:00" />
+<meta itemprop="wordCount" content="797">
+
+
+
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="豆瓣读书的计数问题"/>
+<meta name="twitter:description" content="我是豆瓣的忠实用户，其中一个原因就是豆瓣阅读给我提供了一个很好的阅读记录平台。"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">侠客书生</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">主页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">关于</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">侠客书生</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">主页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">关于</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">豆瓣读书的计数问题</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2016-03-29 </span>
+        
+        
+      </div>
+    </header>
+
+    
+    <div class="post-content">
+      <p>我是豆瓣的忠实用户，其中一个原因就是豆瓣阅读给我提供了一个很好的阅读记录平台。</p>
+<p>在查看和分享读书评论之余，记录自己的阅读状态是其一大特色。目前，有三种阅读状态，分别是：想读、在读和读过。（在手机App端在读功能是缺失的，我曾向官方反馈界面陈述过这一问题，并得到了回应。）</p>
+<p>在看一本书的阅读数据时，我不禁会关注三种状态的统计数字。我的直观感受是：很多书的想读和在读的数字都是一个比较大的数（相对读过而言）。为了进一步对这一问题有所了解，我对20本书的情况进行了统计，得到如下表格：</p>
+<p><img src="/img/2016/03/29/%E8%B1%86%E7%93%A3%E8%AF%BB%E4%B9%A6%E8%A1%A8%E6%A0%BC.png" alt="豆瓣读书小统计"></p>
+<p>注：
+(1)2016年3月7日数据；
+(2)抽取方式为从自己近来已阅读的数目中随机抽取，一些关注量较少的书适当跳过；
+(3)豆瓣中的书常有多个版本，此处以本人在豆瓣所记录的版本为准;
+(4)数据过于相似的书目予以剔除;
+(5)表中的“异常值”指《挪威的森林》.</p>
+<p>从中至少可以得出以下结果：</p>
+<ol>
+<li>被关注量较大的往往是较热门的虚构类作品（如上海堡垒、澜本嫁衣、西游日记、挪威的森林等）和一些经典实用类书籍（如高效能人士的七个习惯精华版、人性的弱点全集、世界上最伟大的推销员等），这说明大众的阅读选择相互影响的作用较大，具有较大的趋同性，而且实用主义导向明显；</li>
+<li>一般意义上的纯文学作品和中国古代经典著作比较受冷落（如钟鼓楼和聊斋志异），</li>
+<li>确有不少书目“想读”和“在读”的数量相当大，有些甚至远超“已读”，这一方面说明用户的潜在阅读较多，另一方面表明阅读的执行的欠缺（其中《挪威的森林》是个较特别的例子，“读过”与“在读”“想读”之比奇高，表格中已经用红色字体标出）；</li>
+<li>从20本书的总计数据看，“读过”的数量与“在读”“想读”之比还算可观，但去掉异常值之后，这一比值则显得不那么好看，这表明某些书的影响力很大，可能是因为豆瓣里文艺青年和伪文艺青年较多。</li>
+</ol>
+<p>我无意做一个非常严谨的统计分析，仅仅是一个小小的观察而已，权作抛砖引玉。</p>
+<p>同时提醒自己：不要放弃思考。</p>
+    </div>
+
+    
+<footer class="post-footer">
+      
+      <nav class="post-nav">
+        <a class="prev" href="/post/2016-03-30-blog-declaration/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">博客宣言</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/2016-03-28-20-fun-things-in-school/">
+            <span class="next-text nav-default">学校趣事20例</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:i@yangqiju.com" class="iconfont icon-email" title="email"></a>
+  <a href="http://yangqiju.com/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2016 - 
+    2020<span class="heart"><i class="iconfont icon-heart"></i></span><span>yangqiju</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

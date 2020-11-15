@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>高保真压缩图片 - 侠客书生</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="yangqiju" /><meta name="description" content="日常多少有压缩图片大小的需求，但压缩图片的同时希望图片质量尽可能的好，至少不能失真。
+" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.78.2 with theme even" />
+
+
+<link rel="canonical" href="http://yangqiju.com/post/2016-04-09-compress-pictures/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.b5a744db6de49a86cadafb3b70f555ab443f83c307a483402259e94726b045ff.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="高保真压缩图片" />
+<meta property="og:description" content="日常多少有压缩图片大小的需求，但压缩图片的同时希望图片质量尽可能的好，至少不能失真。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://yangqiju.com/post/2016-04-09-compress-pictures/" />
+<meta property="article:published_time" content="2016-04-09T18:07:36+00:00" />
+<meta property="article:modified_time" content="2016-04-09T18:07:36+00:00" />
+<meta itemprop="name" content="高保真压缩图片">
+<meta itemprop="description" content="日常多少有压缩图片大小的需求，但压缩图片的同时希望图片质量尽可能的好，至少不能失真。">
+<meta itemprop="datePublished" content="2016-04-09T18:07:36+00:00" />
+<meta itemprop="dateModified" content="2016-04-09T18:07:36+00:00" />
+<meta itemprop="wordCount" content="456">
+
+
+
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="高保真压缩图片"/>
+<meta name="twitter:description" content="日常多少有压缩图片大小的需求，但压缩图片的同时希望图片质量尽可能的好，至少不能失真。"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">侠客书生</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">主页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">关于</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">侠客书生</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">主页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">关于</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">高保真压缩图片</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2016-04-09 </span>
+        
+        
+      </div>
+    </header>
+
+    
+    <div class="post-content">
+      <p>日常多少有压缩图片大小的需求，但压缩图片的同时希望图片质量尽可能的好，至少不能失真。</p>
+<p>过去我往往采取改变分辨率的做法，能基本满足需要，但图片质量不容乐观。</p>
+<p>事实上，Photoshop作为专业图片处理软件，其压缩图片的功能也是棒棒哒。</p>
+<p>以下是某电视剧的宣传图（点击图片可以放大）：
+<img src="/img/2016/04/09/yss.png" alt=""></p>
+<p>用PS打开图片，文件-存储为Web所用格式
+<img src="/img/2016/04/09/1.png" alt=""></p>
+<p>在打开的对话框中点击右上角的菜单，选择“优化文件大小”
+<img src="/img/2016/04/09/2.png" alt=""></p>
+<p>输入需要的文件大小即可
+<img src="/img/2016/04/09/3.png" alt=""></p>
+<p>然后保存图片到电脑。</p>
+<p>以下为修改前后文件大小的对比：
+<img src="/img/2016/04/09/4.png" alt=""></p>
+<p>文件大小由1M变为28kb，缩小了30倍以上。</p>
+<p>接下来，最最重要的：压缩后图片质量怎样呢？
+<img src="/img/2016/04/09/yss1.jpg" alt="">
+从在网页上的显示效果来看，与原图片对比，变化并不太大。</p>
+<p>以下为使用画图软件分辨率缩小为原来50%的图片：
+<img src="/img/2016/04/09/yss2.png" alt=""></p>
+<p>此时的大小为：
+<img src="/img/2016/04/09/5.png" alt=""></p>
+<p>仍然超过400kb，若将此图压缩为30kb左右，图片如下所示：
+<img src="/img/2016/04/09/yss3.png" alt="">
+这时图片小到已经无法辨认。</p>
+<p>综上，可以发现，压缩图片的时候，画图软件的调整分辨率功能是调整图片的宽度和高度，PS的“优化文件大小”则是保持分辨率不变，通过计算适当减少像素。而从总体优化效果来看，PS显然更佳。</p>
+    </div>
+
+    
+<footer class="post-footer">
+      
+      <nav class="post-nav">
+        <a class="prev" href="/post/2016-04-11-the-epitaph/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">The Epitaph</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/2016-04-08-my-programs/">
+            <span class="next-text nav-default">软件记录</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:i@yangqiju.com" class="iconfont icon-email" title="email"></a>
+  <a href="http://yangqiju.com/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2016 - 
+    2020<span class="heart"><i class="iconfont icon-heart"></i></span><span>yangqiju</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>
